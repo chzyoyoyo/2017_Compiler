@@ -1,0 +1,21 @@
+Report
+0416061 陳則佑
+
+Changes I make to my scanner/parser：
+除了上次做好的symbol table 與重複宣告的除錯資訊後，利用已經完成的symbol table，
+在遇到identifier時從symbol table中找出該entry，並在之後遇到其他運算符號時以他
+的type來做對照，用以找出形態上的錯誤，並且根據p language的規則，在有可能會有semantic
+的grammer中新增判斷的程式碼。
+
+
+Ability：
+根據p language的規則找出所有semantic error，並且之印出對應行數與錯誤訊息，錯誤訊息
+主要有：type mismatch, operands type error, 陣列方面的錯誤, 回傳名稱不相同等...。
+
+Run Platform : 
+macOS Sierra 10.12.6, 系上工作站linux 
+
+How To Run: 
+使用以下指令
+make
+./parser example.p

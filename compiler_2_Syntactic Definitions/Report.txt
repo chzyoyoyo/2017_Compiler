@@ -1,0 +1,16 @@
+﻿Report
+0416061 陳則佑
+
+Ability
+Yacc會根據定義的Token產生一份y.tab.h的header，讓lex可以用來include，藉由第一次作業lex的scanner找出p code檔案中的的token分類，將這些分類藉由這次作業寫出的yacc檔中的context free grammar，做button up parse。原本在scanner中被分辨出來的Delimiters, Arithmetic, Relational, Logical Operators, Keywords, Identifiers, Integer Constants, Floating-Point Constants, Scientific Notations, String Constants在Yacc中都是context free grammar的terminal，接著將這些terminal之間的關係自由加入non terminal建立起p language的grammar，來parse p code檔。
+
+Run Platform : 
+macOS Sierra 10.12.6, 系上 作站linux 
+
+How To Run: 
+使用以下指令
+yacc -d -v yacctemplate.y
+lex lex.l
+gcc lex.yy.c y.tab.c -ly -ll
+./a.out example
+

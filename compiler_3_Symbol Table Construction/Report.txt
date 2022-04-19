@@ -1,0 +1,20 @@
+Report
+0416061 陳則佑
+
+Changes I make to my scanner/parser：
+這次的作業，主要部分需要藉由HW2的parser在parse的過程中建立出symbol table，藉由上次作業所寫的context free grammer在適當的
+ternimal 或 nonterminal出現的時候，將目標的p language檔案內的宣告放進symbol table中，所以當parse變數名稱時，建立起空的entry
+並加到屬於他的symbol table中，之後當parse到他的type時，再去將table中的type做填寫，然而parser並不知道確切的變數名稱或數值，因此
+必須在lex中，將他scan到的字串或數字藉由yylval和yacc的union連結到parser的terminal，如此一來便能得到該變數的ID和數值。另外，在yacc裡的context free grammer之間若要傳遞terminal的數值，就必須將傳遞他的nonterminal的type也定義出來，並且要與該terminal相同type才可。
+
+
+Ability：
+將目標的p language檔案內的宣告與同一個level且為同一function或同一compound statement內的其他宣告建立出symbol table，並藉由其中的資訊找出重複宣告的名稱，然後在該level的symbol table建立完成，也就是即將離開該function或compound statement時，將該table的資訊印出，最終離開program時，再將level為0的table，也就是該program的table，也印出來。
+
+Run Platform : 
+macOS Sierra 10.12.6, 系上工作站linux 
+
+How To Run: 
+使用以下指令
+make
+./parser example.p
